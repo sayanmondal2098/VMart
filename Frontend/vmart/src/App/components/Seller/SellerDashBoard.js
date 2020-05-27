@@ -29,9 +29,30 @@ class SellerDashBoard extends React.Component {
     }
     this.state = {
       SellesData: [],
+      totalItems:"",
       sloggedIn
     };
     this.handleLogout = this.handleLogout.bind(this);
+    this.apicall = this.apicall.bind(this);
+
+  }
+
+  apicall(){
+    Axios.post(BACKEND_URL+`/SellergetAllProducts?sellerName=`+localStorage.getItem("sname"))
+    // .then(response => response.json())
+    // .then(data => console.log((data.data)))
+    .then(res =>{
+      var cat = res['data']['products']
+      var ml = cat.length
+      console.log(ml)
+      this.setState({
+        tatalItems : ml
+      })
+    })
+    // .then(this.setState({
+    //   totalItems : data.length
+    // }))
+    
   }
 
   componentDidMount() {
@@ -39,15 +60,18 @@ class SellerDashBoard extends React.Component {
       return SellerLogin
     }
     const url = BACKEND_URL + `/`;
+    this.apicall()
     fetch(url, {
       method: "POST",
     }).then(response => response.json())
+    // .then(this.apicall())
       .then(data =>
         this.setState({
           posts: data,
         }, console.log(data)),
         console.log("Seller Id"),
-        console.log(localStorage.getItem("sid") + " ~test~ " + localStorage.getItem("sname"))
+        console.log(localStorage.getItem("sid") + " ~test~ " + localStorage.getItem("sname")),
+        console.log(this.state.totalItems)
       )
   }
 
@@ -152,10 +176,10 @@ class SellerDashBoard extends React.Component {
               <Paper className="paper summary-box selling-box">
                 <div className="revenue-box">
                   <div className="overviewBoxHeading">
-                    Total Revenue
+                    Total Product 
                   </div>
                   <div className="overviewValue">
-                    Rs. 1000
+                    {this.state.totalItems}
                   </div>
                   <div>
                     <Grid container spacing={3}>
