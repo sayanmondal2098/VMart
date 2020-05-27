@@ -242,7 +242,7 @@ componentDidMount(){
             <label className="form_error" id="err_name"></label>
             <br />
             <label className="form">
-              <b>percentage</b>
+              <b>Discount</b>
             </label>
             <br />
             <Dropdown options={this.state.discount} onChange={(values)=>this.setState({percentage:Number(values.value)})} placeholder="Select an discount" value={this.state.percentage}/>
