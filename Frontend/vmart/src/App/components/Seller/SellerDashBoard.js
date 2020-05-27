@@ -14,7 +14,7 @@ import SellerLogin from './SellerLogin'
 
 import "../../../Assects/css/DashBoaed.css";
 import { BACKEND_URL } from "../../config/Config";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import Axios from "axios";
 
 
