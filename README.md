@@ -2,6 +2,15 @@
 
 ## VyntraMart(Online Cloth Mart)
 
+# Contributor Of the projects
+
+<table>
+<tr>
+<td align="center"> <a href="https://sayanmondal2098.github.io/"><img src="https://sayanmondal2098.github.io/img/profile.jpg" width="100px;" alt=""/><br /><sub><b>Sayan Monal</b></sub></a><br /></td>
+<td align="center"> <a href=""><img src="https://avatars3.githubusercontent.com/u/38220110?s=460&v=4" width="100px;" alt=""/><br /><sub><b>Saptak Das</b></sub></a><br /></td>
+</tr>
+</table>
+
 # Objective:
 
   We are a company that sell Trendy clothes. Most of our sales comes through our popular ecommerce web site that has very high search engine rakings. We are planning to re-engineer our ecommerce web site since it is currently experiencing some serious scalability issues.
