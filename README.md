@@ -2,6 +2,48 @@
 
 ## VyntraMart(Online Cloth Mart)
 
+# Contributor Of the projects
+
+<table>
+<tr>
+<td align="center"> <a href="https://sayanmondal2098.github.io/"><img src="https://sayanmondal2098.github.io/img/profile.jpg" width="100px;" alt=""/><br /><sub><b>Sayan Monal</b></sub></a><br /></td>
+<td align="center"> <a href="https://github.com/saptakds/VMart"><img src="https://avatars3.githubusercontent.com/u/38220110?s=460&v=4" width="100px;" alt=""/><br /><sub><b>Saptak Das</b></sub></a><br /></td>
+</tr>
+</table>
+
+# File Struckure
+
+root of the project
++-- Databases 
+    +-- .sql file
++-- Discussion
+    +-- file2
++-- Frontend/Vmart
+    +-- vmart  ->It contains all the frontend files, to run this use `yarn start` and Open `http://localhost:3000` to view it in the browser.
++--screenshote
+    +-- It contains all the screenshot used in the readme
++--Servers
++--VMart
+    +-- src
+        +--main
+          +--java   ->Contains all the java file
+              +-- config
+              +-- controller
+                  +--admin
+                  +-- seller
+              +-- dao
+                  +--impl
+              +-- model
+              +-- utils
+          +-- webapp ->absic web interface
+    +--target
+
+1. The VMart contails all the java file. To run this , open it in eclipse , install all the maven dependency and then run on tomcat server 
+2. The Frontend/vmart folder It contains all the frontend files, to run this use `yarn start` and Open `http://localhost:3000` to view it in the browser.To know more ['./Frontend/vmart/README.md']ReadMe
+3.  The screenshote folder contains all the screenshot used in the readme.
+4. Servers folder Contails Tomcat Configs
+5. Databases folder contains all the needed sql files. Please import all of them into MySQL database namer vmart.  Do not use BACKUP.sql . It'a a backup file.
+
 # Objective:
 
   We are a company that sell Trendy clothes. Most of our sales comes through our popular ecommerce web site that has very high search engine rakings. We are planning to re-engineer our ecommerce web site since it is currently experiencing some serious scalability issues.
@@ -16,6 +58,7 @@ Application to include the below modules as a basic ones and additionally, value
      4. Payment Gateway – Mock Payment related interfaces.
      5. Secured authentication mechanism
      6. Tax Calculations – Mock this service
+     
     
 More Details:
      The admin interface of the current application that is used to manage product catalog and inventory works fine for now and we will continue to use it with the new customer facing application. The new application should integrate well with this. However, if the database design of the existing application imposes a negative impact on new application performance, it is ok to duplicate this data in the new application database.
@@ -58,23 +101,45 @@ The Home page contains 4 part
 4. The footer - Company Footer and Basic contact information is provided
 
 The Create Account
-!![Alt text](screenshots/CreateAcc.png "create account")
+!![create user account](screenshots/CreateAcc.png "create user account")
 It is the form to create the user account. To create the account , the user have to provide there Name, Email and Password. 
 
 The Login Account
-!![Alt text](screenshots/Login.png "Login account")
+!![Login account](screenshots/Login.png "Login account")
 It is the form to login into the user account. Useing there email and password Credential , The user can login there.
 
 The Category
-!![Alt text](screenshots/UnderCat.png "Product page 1")
-!![Alt text](screenshots/underCat1.png "Product page 1") 
+!![Category page 1](screenshots/UnderCat.png "Category page 1")
+!![Category page 2](screenshots/underCat1.png "Category page 2") 
 The Category Page contains the products ubnder a category.
 
 The Product
-!![Alt text](screenshots/Product1.png "Product page 1")
-!![Alt text](screenshots/Product2.png "Product page 1") 
+!![Product page 1](screenshots/Product1.png "Product page 1")
+!![Product page 2](screenshots/Product2.png "Product page 2") 
 Product page is page which contains all the necessary information about a products. 
 It Contains the Product Picture , Product Name, Product Descreption , Price and Discounted Prics,
 Product Specifications and Seller Name along with Product Code.
 
 
+The Dashboard
+![DashBoard page ](screenshots/Dash1.png "DashBoard page")
+The dashboard contains the Seller LogOut Button, A demo mack dashboard and Seller Add Product button to add products.
+
+
+The Dashboard
+![](screenshots/SellerAddProduct.png "Add Product page 1")
+The Add poduct contains the Product Name, Price, Descreption, Catarory Name, percentage of Discount , Specefecation and hosted picture url .
+
+
+- - - -
+
+Thank you 
+
+# Contributor Of the projects
+
+<table>
+<tr>
+<td align="center"> <a href="https://sayanmondal2098.github.io/"><img src="https://sayanmondal2098.github.io/img/profile.jpg" width="100px;" alt=""/><br /><sub><b>Sayan Monal</b></sub></a><br /></td>
+<td align="center"> <a href="https://github.com/saptakds/VMart"><img src="https://avatars3.githubusercontent.com/u/38220110?s=460&v=4" width="100px;" alt=""/><br /><sub><b>Saptak Das</b></sub></a><br /></td>
+</tr>
+</table>
