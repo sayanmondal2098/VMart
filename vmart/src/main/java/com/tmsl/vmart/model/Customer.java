@@ -1,5 +1,13 @@
 package com.tmsl.vmart.model;
 
+/*
+ * @author: Saptak Das
+ * @date: 31-05-2020
+ * @version: 1.0
+ * @copyright: www.thehealthsync.com
+ * 
+ * */
+
 import java.util.ArrayList;
 import java.util.List;
 

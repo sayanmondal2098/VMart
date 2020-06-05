@@ -46,7 +46,7 @@ public class SellerProductDetails {
 			tempCust.put("pid", p.getPid());
 			tempCust.put("name", p.getName());
 			tempCust.put("category", p.getCategory().getCatName());
-			tempCust.put("discount", p.getDiscount().getPercentage());
+			tempCust.put("discount", p.getDiscount());
 			tempCust.put("getDescription", p.getDescription());
 			tempCust.put("price", p.getPrice());
 			JSONArray pictures = new JSONArray();

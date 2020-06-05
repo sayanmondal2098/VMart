@@ -26,11 +26,10 @@ public class Product {
 	private String name;
 	private Category category;
 	private Double price;
-	private Discount discount;
+	private Double discount;
 	private Seller seller;
 	private Set<String> specification = new HashSet<String>();
 	private String description;
-//	private Long timestamp;
 	private List<Rating> ratings = new ArrayList<Rating>(); // list
 
 	@Id
@@ -106,13 +105,11 @@ public class Product {
 		this.description = description;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "discountID", nullable = false)
-	public Discount getDiscount() {
+	public Double getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(Discount discount) {
+	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
 
@@ -124,14 +121,6 @@ public class Product {
 	public void setRatings(List<Rating> ratings) {
 		this.ratings = ratings;
 	}
-
-//	public Long getTimestamp() {
-//		return timestamp;
-//	}
-//
-//	public void setTimestamp(Long timestamp) {
-//		this.timestamp = timestamp;
-//	}
 	
 	
 

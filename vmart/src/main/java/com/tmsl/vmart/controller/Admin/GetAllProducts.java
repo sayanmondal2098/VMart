@@ -39,7 +39,7 @@ public class GetAllProducts {
 			tempCust.put("pid", p.getPid());
 			tempCust.put("name", p.getName());
 			tempCust.put("category", p.getCategory().getCatName());		
-			tempCust.put("discount", p.getDiscount().getPercentage());
+			tempCust.put("discount", p.getDiscount());
 			tempCust.put("seller", p.getSeller().getSellerID());
 			tempCust.put("getDescription", p.getDescription());
 			tempCust.put("price", p.getPrice());
@@ -81,7 +81,7 @@ public class GetAllProducts {
 			JSONObject tempCust = new JSONObject();
 			tempCust.put("pid", p.getPid());
 			tempCust.put("name", p.getName());
-			tempCust.put("discount", p.getDiscount().getPercentage());
+			tempCust.put("discount", p.getDiscount());
 			tempCust.put("price", p.getPrice());
 			JSONArray pictures=new JSONArray();
 			for(String s:p.getPicList())
@@ -118,7 +118,7 @@ public class GetAllProducts {
 		}
 		result.put("pictures",picList);
 		result.put("category", product.getCategory().getCatName());
-		result.put("discount", product.getDiscount().getPercentage());
+		result.put("discount", product.getDiscount());
 		result.put("price", product.getPrice());	
 		result.put("sellerID", product.getSeller().getSellerID());
 		result.put("sellerName", product.getSeller().getName());
