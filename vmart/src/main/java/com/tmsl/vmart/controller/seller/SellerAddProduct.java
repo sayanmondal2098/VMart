@@ -1,9 +1,5 @@
 package com.tmsl.vmart.controller.seller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.json.JSONObject;
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tmsl.vmart.dao.CategoryDAO;
-import com.tmsl.vmart.dao.DiscountDAO;
 import com.tmsl.vmart.dao.ProductDAO;
 import com.tmsl.vmart.dao.SellerDAO;
 import com.tmsl.vmart.model.Product;
@@ -32,16 +27,12 @@ public class SellerAddProduct {
 	private SellerDAO sellerDAO;
 	@Autowired
 	private CategoryDAO categoryDAO;
-	@Autowired
-	private DiscountDAO discountDAO;
 
-	public SellerAddProduct(ProductDAO productDAO, SellerDAO sellerDAO, CategoryDAO categoryDAO,
-			DiscountDAO discountDAO) {
+	public SellerAddProduct(ProductDAO productDAO, SellerDAO sellerDAO, CategoryDAO categoryDAO) {
 		super();
 		this.productDAO = productDAO;
 		this.sellerDAO = sellerDAO;
 		this.categoryDAO = categoryDAO;
-		this.discountDAO = discountDAO;
 	}
 
 	@RequestMapping(value = "/SellerAddProduct", method = RequestMethod.POST)
@@ -57,7 +48,7 @@ public class SellerAddProduct {
 		product.setSeller(sellerDAO.getSellerBySellerName(sellerName));
 		product.setCategory(categoryDAO.getCategoriesByCatName(catName));
 		product.setDescription(descreptionString);
-		product.setDiscount(discountDAO.getDiscountByValue(percentage));
+		product.setDiscount(percentage);
 		product.setSpecification(specification);
 //		String[] elements = piclist.split(",");
 //		List<String> fixedLenghtList = Arrays.asList(elements);

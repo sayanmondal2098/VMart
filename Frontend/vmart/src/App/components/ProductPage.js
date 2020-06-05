@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import { BACKEND_URL } from "../config/Config";
 import renderHTML from "react-render-html";
 import axios from "axios";
+import Zoom from 'react-img-zoom';
+import ReactDOMServer from 'react-dom/server';
 
 export default class ProductPage extends Component {
   constructor(props) {
@@ -51,6 +53,7 @@ export default class ProductPage extends Component {
   gallView() {
     var retView = "";
     for (var i = 0; i < this.state.images.length; i++) {
+      // retView+=ReactDOMServer.renderToString(<Zoom img={this.state.images[i]} zoomScale={3} height={400} width={200} transitionTime={0.3}/>);
       retView +=
         '<img className="gall_image" src=' + this.state.images[i] + "></img>";
       if ((i + 1) % 2 === 0) {
