@@ -118,6 +118,7 @@ public class GetAllProducts {
 		}
 		result.put("pictures",picList);
 		result.put("category", product.getCategory().getCatName());
+		result.put("sizeChart", product.getCategory().getSizeChart());
 		result.put("discount", product.getDiscount());
 		result.put("price", product.getPrice());	
 		result.put("sellerID", product.getSeller().getSellerID());
