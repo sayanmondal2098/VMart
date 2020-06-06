@@ -43,7 +43,6 @@ public class ApplicationContextConfig {
 	}
 
 	private Properties hibernateProperties() {
-		// TODO Auto-generated method stub
 		Properties properties=new Properties();
 		properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		properties.put("hibernate.show_sql", "true");
