@@ -1,45 +1,50 @@
 package com.tmsl.vmart.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-
 
 @Entity
 @Table(name = "Cart")
 public class Cart {
-	private long cartid;
-	private int customerId;
-	private Set<Product> product = new HashSet<Product>();
-	
+	private Long CartId;
+	private long cid;
+	private List<Product> products = new ArrayList<Product>();
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long getCartid() {
-		return cartid;
+	public Long getCartId() {
+		return CartId;
 	}
-	public void setCartid(long cartid) {
-		this.cartid = cartid;
+
+	public void setCartId(Long cartId) {
+		CartId = cartId;
+	}
+
+	public long getCid() {
+		return cid;
+	}
+
+	public void setCid(long cid) {
+		this.cid = cid;
 	}
 	
-	public int getCustomerId() {
-		return customerId;
+	@ElementCollection(fetch = FetchType.EAGER)
+//	 @OneToMany(orphanRemoval=true)
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-	
-	public Set<Product> getProduct() {
-		return product;
-	}
-	public void setProduct(Set<Product> product) {
-		this.product = product;
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 }
-
