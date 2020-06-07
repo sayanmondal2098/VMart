@@ -40,7 +40,7 @@
             <input class="form_ed" maxlength="1024" onkeydown="txt_tracker(this)" type="password" name="repassword" id="repassword"><br>
             <label class="form_error" id="err_repassword"></label>
             <br>
-            <input class="form_btn" type="submit" value="Continue">
+            <input class="form_btn" type="submit" value="Continue"/>
         </form><br><br>
         <label class="form">Already have an account? <a class="emphasis_link" href="login.jsp">Sign in</a></label>
     </div>
