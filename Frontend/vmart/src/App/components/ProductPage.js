@@ -3,7 +3,8 @@ import { Helmet } from "react-helmet";
 import { BACKEND_URL } from "../config/Config";
 import renderHTML from "react-render-html";
 import axios from "axios";
-import Modal from 'react-modal';
+import Zoom from 'react-img-zoom';
+import ReactDOMServer from 'react-dom/server';
 
 export default class ProductPage extends Component {
   constructor(props) {
@@ -21,17 +22,13 @@ export default class ProductPage extends Component {
       description: "",
       sellerID:"",
       sellerName:"",
-      sizeChart:"",
       promiseIsResolved: false,
-      showSizeChart:false,
     };
 
     this.getProductDetails = this.getProductDetails.bind(this);
     this.gallView = this.gallView.bind(this);
     this.specView = this.specView.bind(this);
     this.sellerView=this.sellerView.bind(this);
-    this.handleSizeChartOpen=this.handleSizeChartOpen.bind(this);
-    this.handleSizeChartClose=this.handleSizeChartClose.bind(this);
   }
 
   componentDidMount() {
@@ -51,18 +48,6 @@ export default class ProductPage extends Component {
           console.log(error);
         });
     }
-  }
-
-  handleSizeChartOpen(){
-    this.setState({
-      showSizeChart:true,
-    })
-  }
-
-  handleSizeChartClose(){
-    this.setState({
-      showSizeChart:false,
-    })
   }
 
   gallView() {
@@ -141,7 +126,6 @@ export default class ProductPage extends Component {
           description: response.data.description,
           sellerID: response.data.sellerID,
           sellerName: response.data.sellerName,
-          sizeChart:response.data.sizeChart,
         });
         for (var i = 0; i < response.data.pictures.length; i++) {
           this.setState({
@@ -172,14 +156,6 @@ export default class ProductPage extends Component {
           </Helmet>
           <br />
           <br />
-          <Modal 
-            className="sizeChartModal"
-           isOpen={this.state.showSizeChart}
-           onRequestClose={this.handleSizeChartClose}
-           shouldCloseOnOverlayClick={true}
-        >
-            <img src={this.state.sizeChart} alt="sizeChart"/>
-          </Modal>
           <label className="blackHeadlbl">
             {this.state.category} > {this.state.name}
           </label>
@@ -200,9 +176,6 @@ export default class ProductPage extends Component {
             <br />
             <label className="textTaxesSmall">inclusive of all taxes</label>
             <br />
-            <br/>
-            <label className="textSpecBody">SELECT SIZE</label>
-              <label className="textofferMed" onClick={this.handleSizeChartOpen}>SIZE CHART ></label>
             <hr/>
             <br />
             <label className="blackH1lbl">Specifications</label>
