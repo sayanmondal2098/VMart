@@ -54,6 +54,7 @@ export default class ProductPage extends Component {
   }
 
   handleSizeChartOpen(){
+    
     this.setState({
       showSizeChart:true,
     })
@@ -201,6 +202,16 @@ export default class ProductPage extends Component {
             <br />
             <label className="textTaxesSmall">inclusive of all taxes</label>
             <br />
+<<<<<<< HEAD
+||||||| 9039b6f
+            <br/>
+            <label className="textSpecBody">SELECT SIZE</label>
+              <label className="textofferMed" onClick={this.handleSizeChartOpen}>SIZE CHART ></label>
+=======
+            <br/>
+            <label className="textSpecBody">SELECT SIZE</label>
+              <label className="textofferMed " onClick={this.handleSizeChartOpen} >SIZE CHART</label>
+>>>>>>> cart
             <hr/>
             <br />
             <label className="blackH1lbl">Specifications</label>
