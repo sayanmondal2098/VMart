@@ -24,10 +24,10 @@ public class ApplicationContextConfig {
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://" + "127.0.0.1" + ":3306/" + "vmart"
 				+"?verifyServerCertificate=false&useSSL=false&requireSSL=false");
-//		ds.setUsername("ph3n1x");
-//		ds.setPassword("ph3n1x");
-		ds.setUsername("root");
-		ds.setPassword("garden3#");
+		ds.setUsername("ph3n1x");
+		ds.setPassword("ph3n1x");
+//		ds.setUsername("root");
+//		ds.setPassword("garden3#");
 		return ds;
 	}
 	
