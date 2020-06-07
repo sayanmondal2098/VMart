@@ -61,6 +61,9 @@ public class CartDAOImpl implements CartDAO{
 					.setParameter("param_cID", customerId)
 					.list();
 			pList.add(product);
+			for (Product product2 : pList) {
+				System.out.println(product2);
+			}
 			return true;
 		} catch (Exception e) {
 			return false;

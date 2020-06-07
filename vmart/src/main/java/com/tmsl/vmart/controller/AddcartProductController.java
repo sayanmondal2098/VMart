@@ -40,8 +40,10 @@ public class AddcartProductController {
 			Cart backupCart = existingCart;
 			backupCart.getProducts().add(productDAO.getProductsByPID(productiD));
 			backupCart.setCid(CustomerId);
-			cartDAO.saveCart(backupCart);
+//			cartDAO.saveCart(backupCart);
+			cartDAO.addProduct(productDAO.getProductsByPID(productiD),CustomerId);
 			cartDAO.removeCart(existingCart);
+			cartDAO.saveCart(backupCart);
 		} else {
 			Cart newcart = new Cart();
 			Product product = productDAO.getProductsByPID(productiD);
