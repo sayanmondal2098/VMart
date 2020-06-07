@@ -209,7 +209,7 @@ export default class ProductPage extends Component {
             <br />
             <br/>
             <label className="textSpecBody">SELECT SIZE</label>
-              <label className="textofferMed" onClick={this.handleSizeChartOpen}>SIZE CHART ></label>
+              <label className="textofferMed" onClick={this.handleSizeChartOpen}>SIZE CHART</label>
             <hr/>
             <br />
             {renderHTML(this.sellerView())}
