@@ -285,6 +285,14 @@ label.textofferBig {
   height: auto;
   margin: 5px;
 }
+label.textofferMed {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(226, 122, 24);
+  height: auto;
+  margin: 5px;
+}
 label.textTaxesSmall {
   font-family: "Lato", sans-serif;
   font-weight: bold;
@@ -318,9 +326,19 @@ table.categoryhome_table{
 img.card{
   width: 80%;
 }
-.gall_image{
+img.gall_image{
   width: 47%;
   margin: 1px;
+}
+.sizeChartModal{
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
 }
 
 
