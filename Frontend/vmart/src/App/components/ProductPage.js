@@ -300,7 +300,7 @@ export default class ProductPage extends Component {
             <br />
             <br/>
             <label className="textSpecBody">SELECT SIZE</label>
-              <label className="textofferMed " onClick={this.handleSizeChartOpen} >SIZE CHART ></label>
+              <label className="textofferMed " onClick={this.handleSizeChartOpen} >SIZE CHART</label>
               <br/>
               <br/>
               <button className={this.state.sizeButtonStyleS} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>S</button>
@@ -310,6 +310,8 @@ export default class ProductPage extends Component {
             <br/>
             <br/>
             <button className="mediumCartButton">ADD TO CART</button>
+            <br/>
+            <button className="mediumCartButton">BUY NOW</button>
             <hr/>
             <br />
             <label className="blackH1lbl">Specifications</label>
