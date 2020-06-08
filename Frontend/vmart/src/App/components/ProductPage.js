@@ -311,7 +311,7 @@ export default class ProductPage extends Component {
             <br/>
             <button className="mediumCartButton">ADD TO CART</button>
             <br/>
-            <button className="mediumCartButton">BUY NOW</button>
+            <button className="mediumCartButton" href="./checkout">BUY NOW</button>
             <hr/>
             <br />
             <label className="blackH1lbl">Specifications</label>
