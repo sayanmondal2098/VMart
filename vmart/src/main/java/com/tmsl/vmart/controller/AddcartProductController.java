@@ -42,6 +42,7 @@ public class AddcartProductController {
 			backupCart.setCid(CustomerId);
 //			cartDAO.saveCart(backupCart);
 			cartDAO.addProduct(productDAO.getProductsByPID(productiD),CustomerId);
+			System.out.println("EXISTING.................");
 			cartDAO.removeCart(existingCart);
 			cartDAO.saveCart(backupCart);
 		} else {
@@ -49,6 +50,7 @@ public class AddcartProductController {
 			Product product = productDAO.getProductsByPID(productiD);
 			newcart.setCid(CustomerId);
 			newcart.getProducts().add(product);
+			System.out.println("ERRROOOOOOOOOOOOOOORRORROORO");
 			cartDAO.saveCart(newcart);
 		}
 
