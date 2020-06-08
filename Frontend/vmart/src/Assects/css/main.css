@@ -341,6 +341,67 @@ img.gall_image{
     height: fit-content;
     background-color: white;
 }
+button.round_button_default{
+  display:inline-block;
+  height: fit-content;
+  width: fit-content;
+  line-height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20%;
+  border: 2px solid rgb(129, 129, 129);
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+}
+button.round_button_hover{
+  display:inline-block;
+  height: fit-content;
+  width: fit-content;
+  line-height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20%;
+  border: 2px solid rgb(163, 0, 0);
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+}
+button.round_button_selected{
+  display:inline-block;
+  height: fit-content;
+  width: fit-content;
+  line-height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20%;
+  border: 2px solid rgb(163, 0, 0);
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(163, 0, 0);
+  text-align: center;
+}
+button.mediumCartButton{
+  display:block;
+  height: fit-content;
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color:  rgb(163, 0, 0);
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+}
 
 
 
