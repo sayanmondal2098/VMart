@@ -22,6 +22,11 @@ export default class ProductPage extends Component {
       sellerID:"",
       sellerName:"",
       sizeChart:"",
+      selectedSize:"",
+      sizeButtonStyleS:"round_button_default",
+      sizeButtonStyleM:"round_button_default",
+      sizeButtonStyleL:"round_button_default",
+      sizeButtonStyleXL:"round_button_default",
       promiseIsResolved: false,
       showSizeChart:false,
     };
@@ -32,6 +37,9 @@ export default class ProductPage extends Component {
     this.sellerView=this.sellerView.bind(this);
     this.handleSizeChartOpen=this.handleSizeChartOpen.bind(this);
     this.handleSizeChartClose=this.handleSizeChartClose.bind(this);
+    this.handleSizeHover=this.handleSizeHover.bind(this);
+    this.handleSizeOut=this.handleSizeOut.bind(this);
+    this.handleSizeClick=this.handleSizeClick.bind(this);
   }
 
   componentDidMount() {
@@ -64,6 +72,94 @@ export default class ProductPage extends Component {
     this.setState({
       showSizeChart:false,
     })
+  }
+
+  handleSizeOut(){
+    if(this.state.selectedSize===""){
+      this.setState({
+        sizeButtonStyleS:"round_button_default",
+        sizeButtonStyleM:"round_button_default",
+        sizeButtonStyleL:"round_button_default",
+        sizeButtonStyleXL:"round_button_default",
+      })
+    }    
+  }
+
+  handleSizeHover(e){
+    e.preventDefault();
+    if(this.state.selectedSize===""){
+      if(e.target.innerText==="S"){
+        this.setState({
+          sizeButtonStyleS:"round_button_hover",
+          sizeButtonStyleM:"round_button_default",
+          sizeButtonStyleL:"round_button_default",
+          sizeButtonStyleXL:"round_button_default",
+        })
+      }
+      else if(e.target.innerText==="M"){
+        this.setState({
+          sizeButtonStyleS:"round_button_default",
+          sizeButtonStyleM:"round_button_hover",
+          sizeButtonStyleL:"round_button_default",
+          sizeButtonStyleXL:"round_button_default",
+        })
+      }
+      else if(e.target.innerText==="L"){
+        this.setState({
+          sizeButtonStyleS:"round_button_default",
+          sizeButtonStyleM:"round_button_default",
+          sizeButtonStyleL:"round_button_hover",
+          sizeButtonStyleXL:"round_button_default",
+        })
+      }
+      else{
+        this.setState({
+          sizeButtonStyleS:"round_button_default",
+          sizeButtonStyleM:"round_button_default",
+          sizeButtonStyleL:"round_button_default",
+          sizeButtonStyleXL:"round_button_hover",
+        })
+      }
+    }    
+  }
+
+  handleSizeClick(e){
+    e.preventDefault();
+    this.setState({
+      selectedSize:e.target.innerText,
+    })
+    if(e.target.innerText==="S"){
+      this.setState({
+        sizeButtonStyleS:"round_button_selected",
+        sizeButtonStyleM:"round_button_default",
+        sizeButtonStyleL:"round_button_default",
+        sizeButtonStyleXL:"round_button_default",
+      })
+    }
+    else if(e.target.innerText==="M"){
+      this.setState({
+        sizeButtonStyleS:"round_button_default",
+        sizeButtonStyleM:"round_button_selected",
+        sizeButtonStyleL:"round_button_default",
+        sizeButtonStyleXL:"round_button_default",
+      })
+    }
+    else if(e.target.innerText==="L"){
+      this.setState({
+        sizeButtonStyleS:"round_button_default",
+        sizeButtonStyleM:"round_button_default",
+        sizeButtonStyleL:"round_button_selected",
+        sizeButtonStyleXL:"round_button_default",
+      })
+    }
+    else{
+      this.setState({
+        sizeButtonStyleS:"round_button_default",
+        sizeButtonStyleM:"round_button_default",
+        sizeButtonStyleL:"round_button_default",
+        sizeButtonStyleXL:"round_button_selected",
+      })
+    }
   }
 
 
@@ -202,25 +298,24 @@ export default class ProductPage extends Component {
             <br />
             <label className="textTaxesSmall">inclusive of all taxes</label>
             <br />
-<<<<<<< HEAD
-||||||| 9039b6f
             <br/>
             <label className="textSpecBody">SELECT SIZE</label>
-              <label className="textofferMed" onClick={this.handleSizeChartOpen}>SIZE CHART ></label>
-=======
+              <label className="textofferMed " onClick={this.handleSizeChartOpen} >SIZE CHART ></label>
+              <br/>
+              <br/>
+              <button className={this.state.sizeButtonStyleS} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>S</button>
+              <button className={this.state.sizeButtonStyleM} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>M</button>
+              <button className={this.state.sizeButtonStyleL} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>L</button>
+              <button className={this.state.sizeButtonStyleXL} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>XL</button>
             <br/>
-            <label className="textSpecBody">SELECT SIZE</label>
-              <label className="textofferMed " onClick={this.handleSizeChartOpen} >SIZE CHART</label>
->>>>>>> cart
+            <br/>
+            <button className="mediumCartButton">ADD TO CART</button>
             <hr/>
             <br />
             <label className="blackH1lbl">Specifications</label>
             <br />
             {renderHTML(this.specView())}
             <br />
-            <br/>
-            <label className="textSpecBody">SELECT SIZE</label>
-              <label className="textofferMed" onClick={this.handleSizeChartOpen}>SIZE CHART</label>
             <hr/>
             <br />
             {renderHTML(this.sellerView())}
