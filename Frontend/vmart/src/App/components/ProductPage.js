@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
+import { Link, Redirect,useHistory } from "react-router-dom";
+
 import { BACKEND_URL } from "../config/Config";
 import renderHTML from "react-render-html";
 import axios from "axios";
 import Modal from 'react-modal';
+import Checkout from "./checkout/Checkout";
+
+
 
 export default class ProductPage extends Component {
+  
   constructor(props) {
     super(props);
+   
 
     this.state = {
       name: decodeURI(this.props.match.params.pName),
@@ -29,8 +36,9 @@ export default class ProductPage extends Component {
       sizeButtonStyleXL:"round_button_default",
       promiseIsResolved: false,
       showSizeChart:false,
+      redirect: false,
     };
-
+    // const history = useHistory();
     this.getProductDetails = this.getProductDetails.bind(this);
     this.gallView = this.gallView.bind(this);
     this.specView = this.specView.bind(this);
@@ -40,6 +48,7 @@ export default class ProductPage extends Component {
     this.handleSizeHover=this.handleSizeHover.bind(this);
     this.handleSizeOut=this.handleSizeOut.bind(this);
     this.handleSizeClick=this.handleSizeClick.bind(this);
+    this.handleBuyNow=this.handleBuyNow.bind(this);
   }
 
   componentDidMount() {
@@ -259,7 +268,19 @@ export default class ProductPage extends Component {
     }
   }
 
+  handleBuyNow(e){
+    alert("checkout")   
+    this.setState({ redirect: true })
+    window.open("/checkout","_blank")
+
+    
+  }
+
   render() {
+    // if (this.state.redirect) {
+    //   return <Redirect to="/checkout"/>
+    // }
+
     if (!this.state.promiseIsResolved) {
       return null;
     } else {
@@ -311,7 +332,9 @@ export default class ProductPage extends Component {
             <br/>
             <button className="mediumCartButton">ADD TO CART</button>
             <br/>
-            <button className="mediumCartButton" href="./checkout">BUY NOW</button>
+
+            <button className="mediumCartButton" onClick={this.handleBuyNow}>BUY NOW</button>
+           
             <hr/>
             <br />
             <label className="blackH1lbl">Specifications</label>
