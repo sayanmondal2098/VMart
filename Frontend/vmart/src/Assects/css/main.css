@@ -292,6 +292,7 @@ label.textofferMed {
   color: rgb(226, 122, 24);
   height: auto;
   margin: 5px;
+  cursor: pointer;
 }
 label.textTaxesSmall {
   font-family: "Lato", sans-serif;
