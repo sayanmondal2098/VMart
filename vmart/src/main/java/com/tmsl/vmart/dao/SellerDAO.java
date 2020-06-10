@@ -14,7 +14,7 @@ public interface SellerDAO {
 
 	public Seller getSellerBySellerName(String name);
 	
-	public Seller getSellerBySellerId(Integer sid);
+	public Seller getSellerBySellerId(Long sid);
 
 	public List<Product> getAllProducts();
 

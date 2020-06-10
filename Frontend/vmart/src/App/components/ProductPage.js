@@ -9,6 +9,12 @@ export default class ProductPage extends Component {
   constructor(props) {
     super(props);
 
+    let ZIPCode="";
+
+    if (localStorage.getItem("user_pincode") != null) {
+      ZIPCode=localStorage.getItem("user_pincode");
+    }
+
     this.state = {
       name: decodeURI(this.props.match.params.pName),
       pID: this.props.match.params.pID,
@@ -31,7 +37,7 @@ export default class ProductPage extends Component {
       showSizeChart: false,
       isZIPDisabled: false,
       isZIPDisabledButton: "Check",
-      ZIPCode: "",
+      ZIPCode,
     };
 
     this.getProductDetails = this.getProductDetails.bind(this);
@@ -67,16 +73,21 @@ export default class ProductPage extends Component {
   }
 
   handleZIPSubmit() {
-    if (this.state.isZIPDisabled) {
-      this.setState({
-        isZIPDisabled: false,
-        isZIPDisabledButton: "Check",
-      });
-    } else {
-      this.setState({
-        isZIPDisabled: true,
-        isZIPDisabledButton: "Change",
-      });
+    if (this.state.ZIPCode.length < 6) {
+      alert("Invalid ZIP Code");
+    } else {      
+      localStorage.setItem("user_pincode",this.state.ZIPCode);
+      if (this.state.isZIPDisabled) {
+        this.setState({
+          isZIPDisabled: false,
+          isZIPDisabledButton: "Check",
+        });
+      } else {
+        this.setState({
+          isZIPDisabled: true,
+          isZIPDisabledButton: "Change",
+        });
+      }
     }
   }
 
@@ -352,9 +363,11 @@ export default class ProductPage extends Component {
             <br />
             <br />
             <button className="mediumCartButton">ADD TO CART</button>
-            <br/>
-            <button className="mediumCartButton" href="./checkout">BUY NOW</button>
-            <hr/>
+            <br />
+            <button className="mediumCartButton" href="./checkout">
+              BUY NOW
+            </button>
+            <hr />
             <br />
             <br />
             <label className="blackH1lbl">DELIVERY OPTIONS</label>
