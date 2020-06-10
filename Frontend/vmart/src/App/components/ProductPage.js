@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { BACKEND_URL } from "../config/Config";
 import renderHTML from "react-render-html";
 import axios from "axios";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
 export default class ProductPage extends Component {
   constructor(props) {
@@ -19,27 +19,32 @@ export default class ProductPage extends Component {
       sellPrice: "",
       offer: "",
       description: "",
-      sellerID:"",
-      sellerName:"",
-      sizeChart:"",
-      selectedSize:"",
-      sizeButtonStyleS:"round_button_default",
-      sizeButtonStyleM:"round_button_default",
-      sizeButtonStyleL:"round_button_default",
-      sizeButtonStyleXL:"round_button_default",
+      sellerID: "",
+      sellerName: "",
+      sizeChart: "",
+      selectedSize: "",
+      sizeButtonStyleS: "round_button_default",
+      sizeButtonStyleM: "round_button_default",
+      sizeButtonStyleL: "round_button_default",
+      sizeButtonStyleXL: "round_button_default",
       promiseIsResolved: false,
-      showSizeChart:false,
+      showSizeChart: false,
+      isZIPDisabled: false,
+      isZIPDisabledButton: "Check",
+      ZIPCode: "",
     };
 
     this.getProductDetails = this.getProductDetails.bind(this);
     this.gallView = this.gallView.bind(this);
     this.specView = this.specView.bind(this);
-    this.sellerView=this.sellerView.bind(this);
-    this.handleSizeChartOpen=this.handleSizeChartOpen.bind(this);
-    this.handleSizeChartClose=this.handleSizeChartClose.bind(this);
-    this.handleSizeHover=this.handleSizeHover.bind(this);
-    this.handleSizeOut=this.handleSizeOut.bind(this);
-    this.handleSizeClick=this.handleSizeClick.bind(this);
+    this.sellerView = this.sellerView.bind(this);
+    this.handleSizeChartOpen = this.handleSizeChartOpen.bind(this);
+    this.handleSizeChartClose = this.handleSizeChartClose.bind(this);
+    this.handleSizeHover = this.handleSizeHover.bind(this);
+    this.handleSizeOut = this.handleSizeOut.bind(this);
+    this.handleSizeClick = this.handleSizeClick.bind(this);
+    this.handleZIPSubmit = this.handleZIPSubmit.bind(this);
+    this.handleZIPInput = this.handleZIPInput.bind(this);
   }
 
   componentDidMount() {
@@ -61,107 +66,121 @@ export default class ProductPage extends Component {
     }
   }
 
-  handleSizeChartOpen(){
-    
-    this.setState({
-      showSizeChart:true,
-    })
-  }
-
-  handleSizeChartClose(){
-    this.setState({
-      showSizeChart:false,
-    })
-  }
-
-  handleSizeOut(){
-    if(this.state.selectedSize===""){
+  handleZIPSubmit() {
+    if (this.state.isZIPDisabled) {
       this.setState({
-        sizeButtonStyleS:"round_button_default",
-        sizeButtonStyleM:"round_button_default",
-        sizeButtonStyleL:"round_button_default",
-        sizeButtonStyleXL:"round_button_default",
-      })
-    }    
+        isZIPDisabled: false,
+        isZIPDisabledButton: "Check",
+      });
+    } else {
+      this.setState({
+        isZIPDisabled: true,
+        isZIPDisabledButton: "Change",
+      });
+    }
   }
 
-  handleSizeHover(e){
+  handleZIPInput(e) {
+    if (e.target.value === "" || e.target.value.match(/^[0-9]+$/)) {
+      this.setState({
+        ZIPCode: e.target.value,
+      });
+    }
+  }
+
+  handleSizeChartOpen() {
+    this.setState({
+      showSizeChart: true,
+    });
+  }
+
+  handleSizeChartClose() {
+    this.setState({
+      showSizeChart: false,
+    });
+  }
+
+  handleSizeOut() {
+    if (this.state.selectedSize === "") {
+      this.setState({
+        sizeButtonStyleS: "round_button_default",
+        sizeButtonStyleM: "round_button_default",
+        sizeButtonStyleL: "round_button_default",
+        sizeButtonStyleXL: "round_button_default",
+      });
+    }
+  }
+
+  handleSizeHover(e) {
     e.preventDefault();
-    if(this.state.selectedSize===""){
-      if(e.target.innerText==="S"){
+    if (this.state.selectedSize === "") {
+      if (e.target.innerText === "S") {
         this.setState({
-          sizeButtonStyleS:"round_button_hover",
-          sizeButtonStyleM:"round_button_default",
-          sizeButtonStyleL:"round_button_default",
-          sizeButtonStyleXL:"round_button_default",
-        })
-      }
-      else if(e.target.innerText==="M"){
+          sizeButtonStyleS: "round_button_hover",
+          sizeButtonStyleM: "round_button_default",
+          sizeButtonStyleL: "round_button_default",
+          sizeButtonStyleXL: "round_button_default",
+        });
+      } else if (e.target.innerText === "M") {
         this.setState({
-          sizeButtonStyleS:"round_button_default",
-          sizeButtonStyleM:"round_button_hover",
-          sizeButtonStyleL:"round_button_default",
-          sizeButtonStyleXL:"round_button_default",
-        })
-      }
-      else if(e.target.innerText==="L"){
+          sizeButtonStyleS: "round_button_default",
+          sizeButtonStyleM: "round_button_hover",
+          sizeButtonStyleL: "round_button_default",
+          sizeButtonStyleXL: "round_button_default",
+        });
+      } else if (e.target.innerText === "L") {
         this.setState({
-          sizeButtonStyleS:"round_button_default",
-          sizeButtonStyleM:"round_button_default",
-          sizeButtonStyleL:"round_button_hover",
-          sizeButtonStyleXL:"round_button_default",
-        })
-      }
-      else{
+          sizeButtonStyleS: "round_button_default",
+          sizeButtonStyleM: "round_button_default",
+          sizeButtonStyleL: "round_button_hover",
+          sizeButtonStyleXL: "round_button_default",
+        });
+      } else {
         this.setState({
-          sizeButtonStyleS:"round_button_default",
-          sizeButtonStyleM:"round_button_default",
-          sizeButtonStyleL:"round_button_default",
-          sizeButtonStyleXL:"round_button_hover",
-        })
+          sizeButtonStyleS: "round_button_default",
+          sizeButtonStyleM: "round_button_default",
+          sizeButtonStyleL: "round_button_default",
+          sizeButtonStyleXL: "round_button_hover",
+        });
       }
-    }    
+    }
   }
 
-  handleSizeClick(e){
+  handleSizeClick(e) {
     e.preventDefault();
     this.setState({
-      selectedSize:e.target.innerText,
-    })
-    if(e.target.innerText==="S"){
+      selectedSize: e.target.innerText,
+    });
+    if (e.target.innerText === "S") {
       this.setState({
-        sizeButtonStyleS:"round_button_selected",
-        sizeButtonStyleM:"round_button_default",
-        sizeButtonStyleL:"round_button_default",
-        sizeButtonStyleXL:"round_button_default",
-      })
-    }
-    else if(e.target.innerText==="M"){
+        sizeButtonStyleS: "round_button_selected",
+        sizeButtonStyleM: "round_button_default",
+        sizeButtonStyleL: "round_button_default",
+        sizeButtonStyleXL: "round_button_default",
+      });
+    } else if (e.target.innerText === "M") {
       this.setState({
-        sizeButtonStyleS:"round_button_default",
-        sizeButtonStyleM:"round_button_selected",
-        sizeButtonStyleL:"round_button_default",
-        sizeButtonStyleXL:"round_button_default",
-      })
-    }
-    else if(e.target.innerText==="L"){
+        sizeButtonStyleS: "round_button_default",
+        sizeButtonStyleM: "round_button_selected",
+        sizeButtonStyleL: "round_button_default",
+        sizeButtonStyleXL: "round_button_default",
+      });
+    } else if (e.target.innerText === "L") {
       this.setState({
-        sizeButtonStyleS:"round_button_default",
-        sizeButtonStyleM:"round_button_default",
-        sizeButtonStyleL:"round_button_selected",
-        sizeButtonStyleXL:"round_button_default",
-      })
-    }
-    else{
+        sizeButtonStyleS: "round_button_default",
+        sizeButtonStyleM: "round_button_default",
+        sizeButtonStyleL: "round_button_selected",
+        sizeButtonStyleXL: "round_button_default",
+      });
+    } else {
       this.setState({
-        sizeButtonStyleS:"round_button_default",
-        sizeButtonStyleM:"round_button_default",
-        sizeButtonStyleL:"round_button_default",
-        sizeButtonStyleXL:"round_button_selected",
-      })
+        sizeButtonStyleS: "round_button_default",
+        sizeButtonStyleM: "round_button_default",
+        sizeButtonStyleL: "round_button_default",
+        sizeButtonStyleXL: "round_button_selected",
+      });
     }
   }
-
 
   gallView() {
     var retView = "";
@@ -178,11 +197,9 @@ export default class ProductPage extends Component {
 
   specView() {
     var retView = "";
-    retView += (
-      '<table>'
-      +'<tr>');
+    retView += "<table>" + "<tr>";
     for (var i = 0; i < this.state.specs.length; i++) {
-      retView+='<td>';
+      retView += "<td>";
       retView +=
         '<label className="textSpecHead">' +
         this.state.specs[i].split(":")[0].trim() +
@@ -191,31 +208,26 @@ export default class ProductPage extends Component {
         '<label className="textSpecBody">' +
         this.state.specs[i].split(":")[1].trim() +
         "</label><br/>";
-        retView+='</td>';  
-        if((i+1)%2===0)
-            {
-                retView+=('</tr><tr>');
-            }
+      retView += "</td>";
+      if ((i + 1) % 2 === 0) {
+        retView += "</tr><tr>";
+      }
     }
-    retView+=('</tr>');
-    retView+=('</table>');
+    retView += "</tr>";
+    retView += "</table>";
     return retView;
   }
 
   sellerView() {
     var retView = "";
+    retView += '<label className="textSpecParHead">Product Code: </label>';
     retView +=
-    '<label className="textSpecParHead">Product Code: </label>';
-  retView +=
-    '<label className="textSpecBody">' +
-    this.state.pID +
-    "</label><br/>";
+      '<label className="textSpecBody">' + this.state.pID + "</label><br/>";
+    retView += '<label className="textSpecParHead">Sold by: </label>';
     retView +=
-    '<label className="textSpecParHead">Sold by: </label>';
-  retView +=
-    '<label className="textSpecBody">' +
-    this.state.sellerName +
-    "(verified)</label>";
+      '<label className="textSpecBody">' +
+      this.state.sellerName +
+      "(verified)</label>";
     return retView;
   }
 
@@ -239,7 +251,7 @@ export default class ProductPage extends Component {
           description: response.data.description,
           sellerID: response.data.sellerID,
           sellerName: response.data.sellerName,
-          sizeChart:response.data.sizeChart,
+          sizeChart: response.data.sizeChart,
         });
         for (var i = 0; i < response.data.pictures.length; i++) {
           this.setState({
@@ -270,13 +282,13 @@ export default class ProductPage extends Component {
           </Helmet>
           <br />
           <br />
-          <Modal 
+          <Modal
             className="sizeChartModal"
-           isOpen={this.state.showSizeChart}
-           onRequestClose={this.handleSizeChartClose}
-           shouldCloseOnOverlayClick={true}
-        >
-            <img src={this.state.sizeChart} alt="sizeChart"/>
+            isOpen={this.state.showSizeChart}
+            onRequestClose={this.handleSizeChartClose}
+            shouldCloseOnOverlayClick={true}
+          >
+            <img src={this.state.sizeChart} alt="sizeChart" />
           </Modal>
           <label className="blackHeadlbl">
             {this.state.category} > {this.state.name}
@@ -298,29 +310,83 @@ export default class ProductPage extends Component {
             <br />
             <label className="textTaxesSmall">inclusive of all taxes</label>
             <br />
-            <br/>
+            <br />
             <label className="textSpecBody">SELECT SIZE</label>
-              <label className="textofferMed " onClick={this.handleSizeChartOpen} >SIZE CHART ></label>
-              <br/>
-              <br/>
-              <button className={this.state.sizeButtonStyleS} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>S</button>
-              <button className={this.state.sizeButtonStyleM} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>M</button>
-              <button className={this.state.sizeButtonStyleL} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>L</button>
-              <button className={this.state.sizeButtonStyleXL} onMouseOver={this.handleSizeHover} onMouseOut={this.handleSizeOut} onClick={this.handleSizeClick}>XL</button>
-            <br/>
-            <br/>
+            <label className="textofferMed" onClick={this.handleSizeChartOpen}>
+              SIZE CHART >
+            </label>
+            <br />
+            <br />
+            <button
+              className={this.state.sizeButtonStyleS}
+              onMouseOver={this.handleSizeHover}
+              onMouseOut={this.handleSizeOut}
+              onClick={this.handleSizeClick}
+            >
+              S
+            </button>
+            <button
+              className={this.state.sizeButtonStyleM}
+              onMouseOver={this.handleSizeHover}
+              onMouseOut={this.handleSizeOut}
+              onClick={this.handleSizeClick}
+            >
+              M
+            </button>
+            <button
+              className={this.state.sizeButtonStyleL}
+              onMouseOver={this.handleSizeHover}
+              onMouseOut={this.handleSizeOut}
+              onClick={this.handleSizeClick}
+            >
+              L
+            </button>
+            <button
+              className={this.state.sizeButtonStyleXL}
+              onMouseOver={this.handleSizeHover}
+              onMouseOut={this.handleSizeOut}
+              onClick={this.handleSizeClick}
+            >
+              XL
+            </button>
+            <br />
+            <br />
             <button className="mediumCartButton">ADD TO CART</button>
+            <br/>
+            <button className="mediumCartButton" href="./checkout">BUY NOW</button>
             <hr/>
+            <br />
+            <br />
+            <label className="blackH1lbl">DELIVERY OPTIONS</label>
+            <br />
+            <br />
+            <form className="pincodeChecker">
+              <input
+                className="edPincode"
+                type="text"
+                maxLength="6"
+                name="zip"
+                id="zip"
+                placeholder="Enter pincode"
+                disabled={this.state.isZIPDisabled}
+                onChange={this.handleZIPInput}
+                value={this.state.ZIPCode}
+              />
+              <label className="textofferMed" onClick={this.handleZIPSubmit}>
+                {this.state.isZIPDisabledButton}
+              </label>
+            </form>
+            <hr />
             <br />
             <label className="blackH1lbl">Specifications</label>
             <br />
             {renderHTML(this.specView())}
             <br />
-            <hr/>
+            <hr />
             <br />
             {renderHTML(this.sellerView())}
-          <br />
-          <br />
+            <br />
+            <br />
           </div>
         </div>
       );
