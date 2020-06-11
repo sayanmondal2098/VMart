@@ -29,12 +29,12 @@ public class LogisticsDAOImpl implements LogisticsDAO {
 		Logistics logistics=(Logistics)session.createQuery("from Logistics where distanceLowerRange<=:param_distance AND distanceUpperRange>=:param_distance")
 				.setParameter("param_distance", distance)
 				.uniqueResult();
-		if(null==logistics)
-		{
-			Logistics logistics1=(Logistics)session.createQuery("from Logistics where deliveryChargeAmount=(select MAX(deliveryChargeAmount) from Logistics)")
-					.uniqueResult();
-			return logistics1;
-		}
+//		if(null==logistics)
+//		{
+//			Logistics logistics1=(Logistics)session.createQuery("from Logistics where deliveryChargeAmount=(select MAX(deliveryChargeAmount) from Logistics)")
+//					.uniqueResult();
+//			return logistics1;
+//		}
 		return logistics;
 	}
 

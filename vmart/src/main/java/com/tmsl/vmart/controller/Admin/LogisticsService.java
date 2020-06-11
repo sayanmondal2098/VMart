@@ -86,7 +86,14 @@ public class LogisticsService {
 		}	
 		
 		Logistics logistics=logisticsDAO.getLogisticalInfo(Double.parseDouble(result.get("distanceInMetres").toString()));
-		result.put("deliveryAmount", logistics.getDeliveryChargeAmount());
+		if(null==logistics)
+		{
+			result.put("deliveryAmount", "not_deliverable");
+		}
+		else
+		{
+			result.put("deliveryAmount", logistics.getDeliveryChargeAmount());
+		}		
 		
 		return new ResponseEntity<String>(result.toString(), HttpStatus.OK);		
 	}

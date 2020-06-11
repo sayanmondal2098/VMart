@@ -22,12 +22,11 @@ public class ApplicationContextConfig {
 	{
 		DriverManagerDataSource ds=new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://" + "127.0.0.1" + ":3306/" + "vmart"
+		ds.setUrl("jdbc:mysql://" + SecureConstants.DATABASE_IP + ":"+SecureConstants.DATABASE_PORT
+				+"/" + SecureConstants.DATABASE_NAME
 				+"?verifyServerCertificate=false&useSSL=false&requireSSL=false");
-//		ds.setUsername("ph3n1x");
-//		ds.setPassword("ph3n1x");
-		ds.setUsername("root");
-		ds.setPassword("garden3#");
+		ds.setUsername(SecureConstants.DATABASE_USERNAME);
+		ds.setPassword(SecureConstants.DATABASE_PASSWORD);
 		return ds;
 	}
 	

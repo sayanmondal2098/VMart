@@ -5,6 +5,10 @@ import renderHTML from "react-render-html";
 import axios from "axios";
 import Modal from "react-modal";
 
+import deliveryTruck from "../../Assects/img/delivery-truck-icon.png";
+import deliveryCharge from "../../Assects/img/delivery-charge-icon.png";
+import easyReturn from "../../Assects/img/eay-exchange-icon.png";
+
 export default class ProductPage extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +41,8 @@ export default class ProductPage extends Component {
       showSizeChart: false,
       isZIPDisabled: false,
       isZIPDisabledButton: "Check",
+      deliveryText:"Delivery not possible",
+      deliveryFee:"We do not deliver here",
       ZIPCode,
     };
 
@@ -83,6 +89,7 @@ export default class ProductPage extends Component {
           isZIPDisabledButton: "Check",
         });
       } else {
+        
         this.setState({
           isZIPDisabled: true,
           isZIPDisabledButton: "Change",
@@ -302,7 +309,7 @@ export default class ProductPage extends Component {
             <img src={this.state.sizeChart} alt="sizeChart" />
           </Modal>
           <label className="blackHeadlbl">
-            {this.state.category} > {this.state.name}
+            {this.state.category} {">"} {this.state.name}
           </label>
           <br />
           <br />
@@ -324,7 +331,7 @@ export default class ProductPage extends Component {
             <br />
             <label className="textSpecBody">SELECT SIZE</label>
             <label className="textofferMed" onClick={this.handleSizeChartOpen}>
-              SIZE CHART >
+              SIZE CHART {">"}
             </label>
             <br />
             <br />
@@ -389,6 +396,20 @@ export default class ProductPage extends Component {
                 {this.state.isZIPDisabledButton}
               </label>
             </form>
+            <br/>
+            <br/>
+            <div className="deliveryContainer">
+              <img className="deliveryIcons" src={deliveryTruck} alt="deliveryTruck"/>
+              <label className="textSpecBody">{this.state.deliveryText}</label>
+              <br/>
+              <br/>
+              <img className="deliveryIcons" src={deliveryCharge} alt="deliveryCharge"/>
+              <label className="textSpecBody">{this.state.deliveryCharge}</label>
+              <br/>
+              <br/>
+              <img className="deliveryIcons" src={easyReturn} alt="easyReturn"/>
+              <label className="textSpecBody">Easy 30 days return & exchange available</label>
+            </div>
             <hr />
             <br />
             <label className="blackH1lbl">Specifications</label>

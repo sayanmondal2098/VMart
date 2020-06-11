@@ -262,6 +262,8 @@ label.textSpecParHead {
   margin: 5px;
 }
 label.textSpecBody {
+  display: inline-block;
+  vertical-align: middle;
   font-family: "Lato", sans-serif;
   font-weight: bold;
   font-size: 18px;
@@ -420,6 +422,17 @@ input.edPincode{
   color: black;
   padding: 5px;
 
+}
+img.deliveryIcons{
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+}
+div.deliveryContainer{
+  width: 100%;
+  height: fit-content;
+  padding: 5px;
 }
 
 
