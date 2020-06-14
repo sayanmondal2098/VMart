@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
-import { BACKEND_URL } from "../config/Config";
+import { BACKEND_URL, getDayName, getMonthName } from "../config/Config";
 import renderHTML from "react-render-html";
 import axios from "axios";
 import Modal from "react-modal";
@@ -13,10 +13,10 @@ export default class ProductPage extends Component {
   constructor(props) {
     super(props);
 
-    let ZIPCode="";
+    let ZIPCode = "";
 
     if (localStorage.getItem("user_pincode") != null) {
-      ZIPCode=localStorage.getItem("user_pincode");
+      ZIPCode = localStorage.getItem("user_pincode");
     }
 
     this.state = {
@@ -41,8 +41,8 @@ export default class ProductPage extends Component {
       showSizeChart: false,
       isZIPDisabled: false,
       isZIPDisabledButton: "Check",
-      deliveryText:"Delivery not possible",
-      deliveryFee:"We do not deliver here",
+      deliveryText: "Delivery not possible",
+      deliveryFee: "We do not deliver here",
       ZIPCode,
     };
 
@@ -57,6 +57,10 @@ export default class ProductPage extends Component {
     this.handleSizeClick = this.handleSizeClick.bind(this);
     this.handleZIPSubmit = this.handleZIPSubmit.bind(this);
     this.handleZIPInput = this.handleZIPInput.bind(this);
+    this.getLogisticsDetails = this.getLogisticsDetails.bind(this);
+    this.responseLogisticsController = this.responseLogisticsController.bind(
+      this
+    );
   }
 
   componentDidMount() {
@@ -79,20 +83,65 @@ export default class ProductPage extends Component {
   }
 
   handleZIPSubmit() {
-    if (this.state.ZIPCode.length < 6) {
-      alert("Invalid ZIP Code");
-    } else {      
-      localStorage.setItem("user_pincode",this.state.ZIPCode);
+    if (this.state.ZIPCode.length < 6 || this.state.ZIPCode==="") {
+      console.log("Invalid ZIP Code");
+    } else {
+      localStorage.setItem("user_pincode", this.state.ZIPCode);
       if (this.state.isZIPDisabled) {
         this.setState({
           isZIPDisabled: false,
           isZIPDisabledButton: "Check",
         });
       } else {
-        
         this.setState({
           isZIPDisabled: true,
           isZIPDisabledButton: "Change",
+        });
+      }
+      this.getLogisticsDetails();
+    }
+  }
+
+  getLogisticsDetails() {
+    axios
+      .post(
+        BACKEND_URL +
+          `/logistic_report?seller_id=${this.state.sellerID}&zip=${this.state.ZIPCode}`
+      )
+      .then((response) => {
+        this.responseLogisticsController(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  responseLogisticsController(response) {
+    if (response.status === 200) {
+      if (
+        (response.data.distanceInMetres !==
+          "Unable to track truck route distance" &&
+          response.data.durationInMinutes !==
+            "Unable to track truck route duration") ||
+        response.data.user_coordinates !==
+          "Unable to retrieve coordinates from ZIP"
+      ) {
+        console.log(response.data);
+        var currentTime = Math.floor(new Date().getTime()) + 259200000;
+        var deliveryTime = new Date(
+          currentTime + response.data.durationInMinutes * 60000
+        );
+        var displayDeliveryTime =
+          "Get it by " +
+          getDayName(deliveryTime.getDay()) +
+          ", " +
+          getMonthName(deliveryTime.getMonth()) +
+          " " +
+          deliveryTime.getDate();
+          var displayDeliveryCharge="₹"+response.data.deliveryAmount+" delivery charge";
+        this.setState({
+          deliveryText:displayDeliveryTime,
+          deliveryFee:displayDeliveryCharge,
         });
       }
     }
@@ -285,6 +334,7 @@ export default class ProductPage extends Component {
           ...this.state,
           promiseIsResolved: true,
         });
+        this.handleZIPSubmit();
       }
     }
   }
@@ -396,19 +446,33 @@ export default class ProductPage extends Component {
                 {this.state.isZIPDisabledButton}
               </label>
             </form>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div className="deliveryContainer">
-              <img className="deliveryIcons" src={deliveryTruck} alt="deliveryTruck"/>
+              <img
+                className="deliveryIcons"
+                src={deliveryTruck}
+                alt="deliveryTruck"
+              />
               <label className="textSpecBody">{this.state.deliveryText}</label>
-              <br/>
-              <br/>
-              <img className="deliveryIcons" src={deliveryCharge} alt="deliveryCharge"/>
-              <label className="textSpecBody">{this.state.deliveryCharge}</label>
-              <br/>
-              <br/>
-              <img className="deliveryIcons" src={easyReturn} alt="easyReturn"/>
-              <label className="textSpecBody">Easy 30 days return & exchange available</label>
+              <br />
+              <br />
+              <img
+                className="deliveryIcons"
+                src={deliveryCharge}
+                alt="deliveryCharge"
+              />
+              <label className="textSpecBody">{this.state.deliveryFee}</label>
+              <br />
+              <br />
+              <img
+                className="deliveryIcons"
+                src={easyReturn}
+                alt="easyReturn"
+              />
+              <label className="textSpecBody">
+                Easy 30 days return & exchange available
+              </label>
             </div>
             <hr />
             <br />
