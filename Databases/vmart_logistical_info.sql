@@ -16,28 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `adminseller`
+-- Table structure for table `logistical_info`
 --
 
-DROP TABLE IF EXISTS `adminseller`;
+DROP TABLE IF EXISTS `logistical_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `adminseller` (
-  `as_id` bigint NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`as_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `logistical_info` (
+  `lid` bigint NOT NULL,
+  `deliveryChargeAmount` double DEFAULT NULL,
+  `distanceLowerRange` double DEFAULT NULL,
+  `distanceUpperRange` double DEFAULT NULL,
+  PRIMARY KEY (`lid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adminseller`
+-- Dumping data for table `logistical_info`
 --
 
-LOCK TABLES `adminseller` WRITE;
-/*!40000 ALTER TABLE `adminseller` DISABLE KEYS */;
-/*!40000 ALTER TABLE `adminseller` ENABLE KEYS */;
+LOCK TABLES `logistical_info` WRITE;
+/*!40000 ALTER TABLE `logistical_info` DISABLE KEYS */;
+INSERT INTO `logistical_info` VALUES (4097,50,0,15000),(4098,100,15001,50000),(4099,200,50001,150000),(4100,500,150001,300000),(4101,1000,300001,800000);
+/*!40000 ALTER TABLE `logistical_info` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-15 15:10:39
+-- Dump completed on 2020-06-15 15:10:42
