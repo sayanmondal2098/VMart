@@ -300,7 +300,7 @@ export default class ProductPage extends Component {
             <img src={this.state.sizeChart} alt="sizeChart"/>
           </Modal>
           <label className="blackHeadlbl">
-            {this.state.category} > {this.state.name}
+            {this.state.category} {">"} {this.state.name}
           </label>
           <br />
           <br />
