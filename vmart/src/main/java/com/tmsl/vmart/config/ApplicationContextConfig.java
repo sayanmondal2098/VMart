@@ -22,12 +22,11 @@ public class ApplicationContextConfig {
 	{
 		DriverManagerDataSource ds=new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://" + "127.0.0.1" + ":3306/" + "vmart"
+		ds.setUrl("jdbc:mysql://" + SecureConstants.DATABASE_IP + ":"+SecureConstants.DATABASE_PORT
+				+"/" + SecureConstants.DATABASE_NAME
 				+"?verifyServerCertificate=false&useSSL=false&requireSSL=false");
-		ds.setUsername("ph3n1x");
-		ds.setPassword("ph3n1x");
-//		ds.setUsername("root");
-//		ds.setPassword("garden3#");
+		ds.setUsername(SecureConstants.DATABASE_USERNAME);
+		ds.setPassword(SecureConstants.DATABASE_PASSWORD);
 		return ds;
 	}
 	
@@ -44,7 +43,7 @@ public class ApplicationContextConfig {
 
 	private Properties hibernateProperties() {
 		Properties properties=new Properties();
-		properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.hbm2ddl.auto", "update");
 		properties.put("hibernate.enable_lazy_load_no_trans", "true");

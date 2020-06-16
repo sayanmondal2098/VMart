@@ -262,6 +262,8 @@ label.textSpecParHead {
   margin: 5px;
 }
 label.textSpecBody {
+  display: inline-block;
+  vertical-align: middle;
   font-family: "Lato", sans-serif;
   font-weight: bold;
   font-size: 18px;
@@ -402,9 +404,46 @@ button.mediumCartButton{
   color: white;
   text-align: center;
 }
+form.pincodeChecker {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  text-align: center;
+}
+input.edPincode{
+  display: inline-block;
+  border: none;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  color: black;
+  padding: 5px;
+
+}
+img.deliveryIcons{
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+}
+div.deliveryContainer{
+  width: 100%;
+  height: fit-content;
+  padding: 5px;
+}
 
 
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
 .slide-container {
   width: 70%;
   margin: auto; }
