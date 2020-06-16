@@ -78,7 +78,7 @@ public class SellerDAOImpl implements SellerDAO {
 		return seller.get(0);
 	}
 	
-	public Seller getSellerBySellerId(Integer sid) {
+	public Seller getSellerBySellerId(Long sid) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Seller> seller =  session.createQuery("from Seller where sellerID=:param_sid")
