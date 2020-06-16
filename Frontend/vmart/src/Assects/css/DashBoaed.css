@@ -1,0 +1,144 @@
+.root{
+    flex-flow: 1;
+    padding: 7%;
+}
+
+.paper {
+    padding: 2;
+    text-align: center;
+    color: transparent;
+    /* box-shadow: 5px 5px lightskyblue; */
+    /* border-radius: 25px; */
+}
+
+.summary-box {
+    width: 300px;
+    height: 200px; 
+  
+}
+
+.revenue-box {
+    width: 300px;
+    height: 200px;
+    background-color: lightblue;
+    /* border-radius: 15%;  */
+    /* background-position: initial; */
+    text-align: center;
+
+    box-shadow: 5px 5px rgb(114, 114, 114);
+
+    /* border: 5ps 5px 5px 5px; */
+}
+
+.selling-box{
+
+    width: 300px;
+    height: 200px;
+    background-color: lightgoldenrodyellow;
+    /* border-radius: 15%;  */
+    /* background-position: initial; */
+    text-align: center;
+    box-shadow: 5px 5px rgb(114, 114, 114);
+    /* border: 5ps 5px 5px 5px; */
+}
+
+.cart-box{
+
+    width: 300px;
+    height: 200px;
+    background-color: #f6f7ff;
+    /* border-radius: 15%;  */
+    /* background-position: initial; */
+    text-align: center;
+    border: 5ps 5px 5px 5px;
+    box-shadow: 5px 5px rgb(114, 114, 114);
+}
+
+.monthlyOverview-box{
+
+    width: 300px;
+    height: 200px;
+    background-color: #f6f7ff;
+    /* border-radius: 15%;  */
+    /* background-position: initial; */
+    text-align: center;
+    /* vertical-align: middle;
+    line-height: 200px; */
+    border: 5ps 5px 5px 5px;
+    box-shadow: 5px 5px rgb(114, 114, 114);
+}
+
+.overviewBoxHeading {
+    padding: 5%;
+    font-size: 2.1rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.33;
+    letter-spacing: 0em;
+}
+
+.overviewValue {
+    font-size: 1.5rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.33;
+    letter-spacing: 0em;
+}
+
+.gridSmallInfoBox {
+    width: 30px;
+    height: 20px; 
+}
+
+.revenue-box-infoDiv{
+    padding: 15%;
+}
+
+.revenue-box-info {
+    width: 70px;
+    height: 40px;
+    background-color: white;
+    /* border-radius: 15%;  */
+    /* background-position: initial; */
+    text-align: center;
+    box-shadow: 5px 5px rgb(114, 114, 114);
+
+    /* border: 5ps 5px 5px 5px; */
+}
+
+.menubar-buttons {
+    position: relative;
+    float: right !important;
+    padding: 1%;
+    margin-right: 2px;
+}
+
+.summary-box-heading {
+    font-size: 2.5rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: 0em;
+    padding-bottom: 1%;
+
+}
+
+.sellsgraph-box-heading {
+    font-size: 2.5rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: 0em;
+    padding-bottom: 2%;
+    padding-top: 3%;
+}
+
+.transaction-box-heading{
+    font-size: 2.5rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: 0em;
+    padding-bottom: 2%;
+    padding-top: 3%;
+}

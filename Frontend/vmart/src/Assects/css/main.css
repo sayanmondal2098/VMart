@@ -1,0 +1,464 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+img.head_logo {
+  display: block;
+  margin: auto;
+  width: auto;
+  height: inherit;
+}
+img.header_logo {
+  margin: auto;
+  width: 4%;
+  height: 4%;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+img.inline {
+  margin: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  width: inherit;
+}
+.head {
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+}
+.form_container {
+  width: 300px;
+  height: fit-content;
+  margin: auto;
+  padding: 15px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: rgb(176, 179, 182);
+  border-width: 0.5px;
+}
+.form_head {
+  font-family: "Lato", sans-serif;
+  font-size: 25px;
+}
+input.form_ed {
+  font-family: "Lato", sans-serif;
+  padding: 10px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: rgb(131, 134, 138);
+  border-width: 0.5px;
+}
+form.search_form {
+  display: inline-block;
+  width: 40%;
+  margin: 5px;
+  vertical-align: middle;
+}
+input.search_ed {
+  font-family: "Lato", sans-serif;
+  width: 90%;
+  padding: 10px 15px;
+  border-style: none;
+  border-radius: 3px;
+}
+label.form {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  width: max-content;
+  height: fit-content;
+  margin: auto;
+  padding-bottom: 5px;
+}
+label.form_error {
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  color: rgb(158, 22, 22);
+  width: max-content;
+  height: fit-content;
+  padding-bottom: 5px;
+}
+label.boldtextH1 {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  height: auto;
+  margin: 5px;
+}
+label.boldtextH2 {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  height: auto;
+  margin: 5px;
+}
+label.textH2 {
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  color: rgb(129, 129, 129);
+  height: auto;
+  margin: 5px;
+  text-decoration: line-through;
+}
+label.textoffer {
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  color: rgb(226, 122, 24);
+  height: auto;
+  margin: 5px;
+}
+input.form_btn {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  padding: 10px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: rgb(223, 42, 42);
+  border-width: 0.5px;
+  background-color: rgb(221, 137, 137);
+}
+button.btn_login {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(242, 22, 25);
+  padding: 5px 40px;
+  width: fit-content;
+  margin: 5px;
+  border-style: solid;
+  border-radius: 3px;
+  background-color: white;
+}
+a.emphasis_link {
+  color: rgb(80, 107, 197);
+  text-decoration: none;
+}
+div.Header {
+  display: block;
+  width: 100%;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  height: fit-content;
+  background-color: rgb(242, 22, 25);
+  text-align: center;
+}
+div.head_tab {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  width: fit-content;
+  text-align: center;
+}
+label.tab {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  height: auto;
+  margin: 10px;
+}
+label.foot_copyright {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: rgb(87, 83, 83);
+  height: auto;
+  margin: 10px;
+}
+div.foot_list_container{
+  display: inline-table;
+  width: fit-content;
+  height: auto;
+  margin: 10px;
+}
+div.img_grid{
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  width: 59%;
+  height: 100%;
+  margin: 1px;
+}
+div.prod_details{
+  display: inline-block;
+  vertical-align: top;
+  width: 39%;
+  height: 100%;
+  margin: 1px;
+}
+.foot_normal_lbl{
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: rgb(148, 148, 148);
+  width: inherit;
+  margin: 10px;
+  text-align: start;
+}
+.foot_list{
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+.Footer{
+  display: block;
+  width: 100%;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  height: fit-content;
+  background-color: black;
+  text-align: center;
+}
+.Categories{
+  margin: 20px;
+}
+label.blackHeadlbl{
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
+  height: auto;
+  margin: 5px;
+}
+label.blackH1lbl{
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  height: auto;
+  margin: 5px;
+}
+label.textgreyH1 {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  color: grey;
+  height: auto;
+  margin: 5px;
+}
+label.textSpecHead {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  color: grey;
+  height: auto;
+  margin: 5px;
+}
+label.textSpecParHead {
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  color: grey;
+  height: auto;
+  margin: 5px;
+}
+label.textSpecBody {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  height: auto;
+  margin: 5px;
+}
+label.textgreyH1_strikethrough {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  color: grey;
+  height: auto;
+  margin: 5px;
+  text-decoration: line-through;
+}
+label.textofferBig {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(226, 122, 24);
+  height: auto;
+  margin: 5px;
+}
+label.textofferMed {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(226, 122, 24);
+  height: auto;
+  margin: 5px;
+  cursor: pointer;
+}
+label.textTaxesSmall {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(5, 141, 100);
+  height: auto;
+  margin: 5px;
+}
+table.categoryhome_table{
+  width: 100%;
+  text-align: center;
+}
+.Home{
+  position:absolute;
+    top: 50px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow-y:scroll;   
+}
+.ProductCard{
+  margin: 10px;
+  padding: 5px;
+}
+.ProductsCategory{
+  margin: 10px;
+}
+.ProductPage{
+  margin: 5px;
+}
+img.card{
+  width: 80%;
+}
+img.gall_image{
+  width: 47%;
+  margin: 1px;
+}
+.sizeChartModal{
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+}
+button.round_button_default{
+  display:inline-block;
+  height: fit-content;
+  width: fit-content;
+  line-height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20%;
+  border: 2px solid rgb(129, 129, 129);
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+}
+button.round_button_hover{
+  display:inline-block;
+  height: fit-content;
+  width: fit-content;
+  line-height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20%;
+  border: 2px solid rgb(163, 0, 0);
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+}
+button.round_button_selected{
+  display:inline-block;
+  height: fit-content;
+  width: fit-content;
+  line-height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20%;
+  border: 2px solid rgb(163, 0, 0);
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(163, 0, 0);
+  text-align: center;
+}
+button.mediumCartButton{
+  display:block;
+  height: fit-content;
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color:  rgb(163, 0, 0);
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+}
+form.pincodeChecker {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  margin: 5px;
+  padding: 10px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  text-align: center;
+}
+input.edPincode{
+  display: inline-block;
+  border: none;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  color: black;
+  padding: 5px;
+
+}
+img.deliveryIcons{
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+}
+div.deliveryContainer{
+  width: 100%;
+  height: fit-content;
+  padding: 5px;
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.slide-container {
+  width: 70%;
+  margin: auto; }
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 300px;
+}
+
+.each-slide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
