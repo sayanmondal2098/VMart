@@ -8,10 +8,17 @@ import Modal from "react-modal";
 import deliveryTruck from "../../Assects/img/delivery-truck-icon.png";
 import deliveryCharge from "../../Assects/img/delivery-charge-icon.png";
 import easyReturn from "../../Assects/img/eay-exchange-icon.png";
+import { Link, Redirect,useHistory } from "react-router-dom";
+
+import Checkout from "./checkout/Checkout";
+
+
 
 export default class ProductPage extends Component {
+  
   constructor(props) {
     super(props);
+   
 
     let ZIPCode = "";
 
@@ -44,8 +51,9 @@ export default class ProductPage extends Component {
       deliveryText: "Delivery not possible",
       deliveryFee: "We do not deliver here",
       ZIPCode,
+      redirect: false,
     };
-
+    // const history = useHistory();
     this.getProductDetails = this.getProductDetails.bind(this);
     this.gallView = this.gallView.bind(this);
     this.specView = this.specView.bind(this);
@@ -61,6 +69,7 @@ export default class ProductPage extends Component {
     this.responseLogisticsController = this.responseLogisticsController.bind(
       this
     );
+    this.handleBuyNow=this.handleBuyNow.bind(this);
   }
 
   componentDidMount() {
@@ -339,7 +348,19 @@ export default class ProductPage extends Component {
     }
   }
 
+  handleBuyNow(e){
+    alert("checkout")   
+    this.setState({ redirect: true })
+    window.open("/checkout","_blank")
+
+    
+  }
+
   render() {
+    // if (this.state.redirect) {
+    //   return <Redirect to="/checkout"/>
+    // }
+
     if (!this.state.promiseIsResolved) {
       return null;
     } else {
@@ -475,6 +496,11 @@ export default class ProductPage extends Component {
               </label>
             </div>
             <hr />
+            <br/>
+
+            <button className="mediumCartButton" onClick={this.handleBuyNow}>BUY NOW</button>
+           
+            <hr/>
             <br />
             <label className="blackH1lbl">Specifications</label>
             <br />
