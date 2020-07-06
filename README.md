@@ -14,16 +14,26 @@
 # File Struckure
 
 root of the project
+
 +-- Databases 
+
     +-- .sql file
+    
 +-- Discussion
+
     +-- file2
+    
 +-- Frontend/Vmart
+
     +-- vmart  ->It contains all the frontend files, to run this use `yarn start` and Open `http://localhost:3000` to view it in the browser.
 +--screenshote
+
     +-- It contains all the screenshot used in the readme
+    
 +--Servers
+
 +--VMart
+
     +-- src
         +--main
           +--java   ->Contains all the java file
