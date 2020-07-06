@@ -80,7 +80,7 @@ function Redirect()
         setInterval(function () {
           Redirect('http://www.google.com')
         },1000)
-      }
+      
      
       
   
