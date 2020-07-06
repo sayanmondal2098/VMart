@@ -149,6 +149,14 @@ The Dashboard
 The Add poduct contains the Product Name, Price, Descreption, Catarory Name, percentage of Discount , Specefecation and hosted picture url .
 
 
+
+
+
+
+Limitations:
+1. Cart system has not been implemented
+2. Only mock payment gateway has been implemented
+3. Delivery distance is calculated using Here Maps API which has its own limitations and might not detect the position of every pincodes
 - - - -
 
 Thank you 
